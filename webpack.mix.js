@@ -50,6 +50,6 @@ mix
     .copy('index.html', 'dist/index.html')
     .js('src/index.js', 'scripts')
     .browserSync({
-        proxy: 'http://climate.test',
+        proxy: 'http://climate.test/dist/index.html',
         ui: false,
     });
