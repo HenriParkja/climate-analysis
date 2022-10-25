@@ -30,40 +30,26 @@ mix
                 },
             ],
         },
-        target: 'node',
-        externals: {
-            jquery: 'jQuery',
-        },
+        target: 'web',
+        // externals: {
+        //     jquery: 'jQuery',
+        // },
         output: {
             publicPath: '',
         },
     })
     // Automatically binds $ = jquery, so we can use $ shorthands everywhere
-    .autoload({
-        jquery: ['$', 'window.jQuery', 'jQuery'],
-    })
+    // .autoload({
+    //     jquery: ['$', 'window.jQuery', 'jQuery'],
+    // })
     .setPublicPath('./dist')
     .sass('src/style.scss', 'styles', sassOptions)
     .options({
         processCssUrls: false,
     })
+    .copy('index.html', 'dist/index.html')
     .js('src/index.js', 'scripts')
     .browserSync({
         proxy: 'http://climate.test',
         ui: false,
     });
-
-// if (mix.inProduction()) {
-//     mix
-//         .copyDirectory('resources/images', 'public/images')
-//         .copyDirectory('resources/fonts', 'public/fonts')
-//         .version();
-// } else {
-//     // We use .env file from site
-//     mix
-//         .env('../../../../.env')
-//         .browserSync({
-//             proxy: 'http://climate.test',
-//             ui: false,
-//         });
-// }
