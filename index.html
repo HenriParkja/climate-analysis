@@ -11,12 +11,14 @@
   <body>
     <main>
         <div class="container climate_container">
-            <h1 class="climate_title text-center">Temperature Projections for Estonia</h1>
+            <h1 class="climate_title text-center">Projected Mean Temperature, Estonia; (Ref. Period: 1986-2085)</h1>
             
-            <div class="climate_chart js-chart" id="chart">
-
+            <div class="climate_buttons">
+                <button class="btn btn-primary js-switchChartBtn" data-chart="chartWinter">Winter</button>
+                <button class="btn btn-primary js-switchChartBtn" data-chart="chartSummer">Summer</button>
             </div>
-            
+            <div class="climate_chart js-chart st-show" id="chartSummer"></div>
+            <div class="climate_chart js-chart" id="chartWinter"></div>
         </div>
 
     </main>
