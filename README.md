@@ -1,9 +1,8 @@
 # climate-analysis
 
 - index.html - basic HTML template 
-- src/scripts/main.js - main JS file where Highcharts is being setup
-- src/scripts/data.js - JS file to store data for Highcharts
-- src/scripts/style.scss - styles 
+- src/scripts/ - JS files
+- src/style.scss - styles 
 
 ## Asset compilation 
 Assets (.js, .scss, etc) files are compiled using Laravel Mix (webpack.mix.js). 
