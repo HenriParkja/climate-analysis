@@ -48,6 +48,7 @@ mix
         processCssUrls: false,
     })
     .copy('index.html', 'dist/index.html')
+    .copy('src/images/**', 'dist/images/')
     .js('src/scripts/main.js', 'scripts')
     .browserSync({
         proxy: 'http://climate.test/dist/index.html',

@@ -27,7 +27,7 @@ const highchart = () => {
             }
         },
         tooltip: {
-            crosshairs: true,
+            crosshairs: false,
             shared: true,
             valueSuffix: '°C'
         },
@@ -41,45 +41,73 @@ const highchart = () => {
         },
         series: [{
             type: 'line',
-            marker: {
-                fillColor: 'white',
-                lineWidth: 2,
-                lineColor: Highcharts.getOptions().colors[3]
+            animation: {
+                duration: 2000
             },
+            marker: {
+                enabled: false,
+                fillColor: 'white',
+                lineWidth: 1,
+                symbol: 'circle',
+                lineColor: '#ffa500'
+            },
+            color: '#ffa500',
             name: 'Time average of summer Tmean under RCP 8.5',
             data: data.timeAverageSummerRCP85
         },
         {
             type: 'arearange',
-            name: 'Standard deviation RCP 8.5',
+            name: 'Dispersion RCP 8.5',
+            animation: {
+                duration: 2000
+            },
             marker: {
-                enabled: false
+                enabled: false,
+                states: {
+                    hover: {
+                        enabled: false
+                    }
+                }
             },
             linkedTo: ':previous',
             fillOpacity: 0.3,
-            color: Highcharts.getOptions().colors[3],
+            color: '#ffa500',
             lineWidth: 0,
             data: data.timeAverageSummerRCP85StdDev
         },
         {
             type: 'line',
+            animation: {
+                duration: 2000
+            },
+            color: '#0884E9',
             marker: {
+                enabled: false,
                 fillColor: 'white',
-                lineWidth: 2,
-                lineColor: Highcharts.getOptions().colors[0]
+                lineWidth: 1,
+                symbol: 'circle',
+                lineColor: '#0884E9',
             },
             name: 'Time average of summer Tmean under RCP 4.5',
             data: data.timeAverageSummerRCP45
         },
         {
             type: 'arearange',
-            name: 'Standard deviation RCP 4.5',
+            name: 'Dispersion of RCP 4.5',
+            animation: {
+                duration: 2000
+            },
             marker: {
-                enabled: false
+                enabled: false,
+                states: {
+                    hover: {
+                        enabled: false
+                    }
+                }
             },
             linkedTo: ':previous',
             fillOpacity: 0.3,
-            color: Highcharts.getOptions().colors[0],
+            color: '#0884E9',
             lineWidth: 0,
             data: data.timeAverageSummerRCP45StdDev
         }]
@@ -121,32 +149,49 @@ const highchart = () => {
         },
         series: [{
             type: 'line',
-            marker: {
-                fillColor: 'white',
-                lineWidth: 2,
-                lineColor: Highcharts.getOptions().colors[3]
+            animation: {
+                duration: 2000
             },
-            name: 'Time average of summer Tmean under RCP 8.5',
+            marker: {
+                enabled: false,
+                fillColor: 'white',
+                lineWidth: 1,
+                symbol: 'circle',
+                lineColor: '#ffa500'
+            },
+            color: '#ffa500',
+            name: 'Time average of winter Tmean under RCP 8.5',
             data: data.timeAverageWinterRCP85
         },
         {
             type: 'arearange',
-            name: 'Standard deviation RCP 8.5',
+            name: 'Dispersion of RCP 8.5',
             marker: {
-                enabled: false
+                enabled: false,
+                states: {
+                    hover: {
+                        enabled: false
+                    }
+                }
             },
             linkedTo: ':previous',
             fillOpacity: 0.3,
-            color: Highcharts.getOptions().colors[3],
+            color: '#ffa500',
             lineWidth: 0,
             data: data.timeAverageWinterRCP85StdDev
         },
         {
             type: 'line',
+            animation: {
+                duration: 2000
+            },
+            color: '#0884E9',
             marker: {
+                enabled: false,
                 fillColor: 'white',
-                lineWidth: 2,
-                lineColor: Highcharts.getOptions().colors[0]
+                lineWidth: 1,
+                symbol: 'circle',
+                lineColor: '#0884E9',
             },
             name: 'Time average of summer Tmean under RCP 4.5',
             data: data.timeAverageWinterRCP45
@@ -155,11 +200,16 @@ const highchart = () => {
             type: 'arearange',
             name: 'Standard deviation RCP 4.5',
             marker: {
-                enabled: false
+                enabled: false,
+                states: {
+                    hover: {
+                        enabled: false
+                    }
+                }
             },
             linkedTo: ':previous',
             fillOpacity: 0.3,
-            color: Highcharts.getOptions().colors[0],
+            color: '#0884E9',
             lineWidth: 0,
             data: data.timeAverageWinterRCP45StdDev
         }]
