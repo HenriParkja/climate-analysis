@@ -22,18 +22,18 @@
                 <h1 class="hero_text text-center js-heroText"></h1>
             </div>
 
-            <div class="hero d-flex align-items-center justify-content-center" 
+            <!-- <div class="hero d-flex align-items-center justify-content-center" 
             data-aos="fade-in"
             data-aos-once="false"
             >
                 <h1 class="hero_text text-center js-heroSubText"></h1>
-            </div>
+            </div> -->
 
         </div>
 
         <div class="container climate_container">
 
-            <h1 class="climate_title text-center">Projected Mean Temperature, Estonia; (Ref. Period: 1986-2085)</h1>
+            <h1 class="climate_title text-center">Eesti projekteeritud keskmine temperatuur (Periood: 1986-2085)</h1>
             
             <div class="climate_buttons d-none">
                 <button class="btn btn-primary js-switchChartBtn" data-chart="chartWinter">Winter</button>
@@ -45,15 +45,23 @@
             data-aos="fade-right" 
             data-aos-duration="1000"
             data-aos-once="false"
+            data-function="summerTempAverage"
             ></div>
     
             <div class="climate_chart js-chart st-show" id="chartWinter" 
             data-aos="fade-left" 
             data-aos-duration="1000"
             data-aos-once="false"
+            data-function="winterTempAverage"
             ></div>
-        
-            
+
+            <div class="climate_chart js-chart st-show" id="chartWind" 
+            data-aos="fade-right" 
+            data-aos-duration="1000"
+            data-aos-once="false"
+            data-function="wind"
+            ></div>
+    
         </div>
 
     </main>

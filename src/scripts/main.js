@@ -14,27 +14,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroText = new typeit('.js-heroText', {
         startDelay: 300,
         speed: 80,
-        strings: "Globaalsest soojenemisest tulenevad kliimamuutused on inimkonna suurim väljakutse 21.sajandil."
     })
+    .type("Inimtegevusest tingitud kliimamuutused - tuleviku projektsioonid Eestile")
+    .pause(500)
+    .type(". ")
     .go();
 
-    const heroSubText = new typeit('.js-heroSubText', {
-        startDelay: 500,
-    })
-    .type("Climate change is real. ")
-    .move(null, { to: "END" })
-    .type("And it's affecting everyone.")
-    .go()
+    // const heroSubText = new typeit('.js-heroSubText', {
+    //     startDelay: 500,
+    // })
+    // .type("Kliimamuutused on reaalsus. ")
+    // .pause(400)
+    // .type("Ja need mõjutavad kõiki.")
+    // .go()
 
 
-    let subHeroObserver = new IntersectionObserver(function(entries) {
-        // isIntersecting is true when element and viewport are overlapping
-        // isIntersecting is false when element and viewport don't overlap
-        if(entries[0].isIntersecting)
-            heroSubText.reset().go();
-    }, { threshold: [0] });
+    // let subHeroObserver = new IntersectionObserver(function(entries) {
+    //     // isIntersecting is true when element and viewport are overlapping
+    //     // isIntersecting is false when element and viewport don't overlap
+    //     if(entries[0].isIntersecting)
+    //         heroSubText.reset().go();
+    // }, { threshold: [0] });
     
-    subHeroObserver.observe(document.querySelector(".js-heroSubText"));
+    // subHeroObserver.observe(document.querySelector(".js-heroSubText"));
 
     let heroObserver = new IntersectionObserver(function(entries) {
         // isIntersecting is true when element and viewport are overlapping
@@ -45,5 +47,5 @@ document.addEventListener('DOMContentLoaded', () => {
     
     heroObserver.observe(document.querySelector(".js-heroText"));
 
-
+    
 })

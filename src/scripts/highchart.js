@@ -5,8 +5,7 @@ import more from 'highcharts/highcharts-more';
 more(Highcharts);
 
 const highchart = () => {
-    document.addEventListener('DOMContentLoaded', () => {
-    const chartSummer = Highcharts.chart('chartSummer', {
+    const summerTempAverage = () => { Highcharts.chart('chartSummer', {
         chart: {
             
         },
@@ -112,9 +111,9 @@ const highchart = () => {
             data: data.timeAverageSummerRCP45StdDev
         }]
     })
-
+    }
     
-    const chartWinter = Highcharts.chart('chartWinter', {
+    const winterTempAverage = () => { Highcharts.chart('chartWinter', {
         chart: {
             
         },
@@ -150,7 +149,7 @@ const highchart = () => {
         series: [{
             type: 'line',
             animation: {
-                duration: 2000
+                duration: 1000
             },
             marker: {
                 enabled: false,
@@ -183,7 +182,7 @@ const highchart = () => {
         {
             type: 'line',
             animation: {
-                duration: 2000
+                duration: 1000
             },
             color: '#0884E9',
             marker: {
@@ -214,7 +213,81 @@ const highchart = () => {
             data: data.timeAverageWinterRCP45StdDev
         }]
     });
-})
+}
+
+    const wind = () => {
+        Highcharts.chart('chartWind', {
+        chart: {
+            
+        },
+        title: {
+            text: "Wind speed"
+        },
+        xAxis: {
+            accessibility: {
+                rangeDescription: 'Range: 1986 to 2085'
+            },
+            title: {
+                text: 'Date'
+            }
+        },
+        yAxis: {
+            title: {
+                text: 'Wind speed [m/s]'
+            }
+        },
+        tooltip: {
+            crosshairs: true,
+            shared: true,
+            valueSuffix: '°C'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: true
+                },
+                pointStart: 1986,
+            }
+        },
+        series: [{
+            type: 'line',
+            animation: {
+                duration: 2000
+            },
+            marker: {
+                enabled: false,
+                fillColor: 'white',
+                lineWidth: 1,
+                symbol: 'circle',
+                lineColor: '#ffa500'
+            },
+            color: '#ffa500',
+            name: 'Average wind speed under RCP 8.5',
+            data: data.windRCP45
+        }]
+        });
+    }
+    let chartObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if(entry.isIntersecting) {
+                let funcName = entry.target.getAttribute('data-function')
+                switch(funcName) {
+                    case 'summerTempAverage' : summerTempAverage()
+                    case 'winterTempAverage' : winterTempAverage()
+                    case 'wind' : wind()
+                    default: return
+                }
+                if (typeof fn === 'function') fn()
+            }
+        })
+    });
+    
+    chartObserver.observe(document.querySelector(".js-heroText"));
+    document.querySelectorAll('.js-chart').forEach((el)=> {
+        if(el) {
+            chartObserver.observe(el);
+        }
+    })
 }
 
 export default highchart;
