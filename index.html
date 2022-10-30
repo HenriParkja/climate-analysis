@@ -7,18 +7,53 @@
     <title>Climate Data Analysis</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <main>
+    <main class="main">
+        <div class="container">
+            <div class="hero d-flex align-items-center justify-content-center"
+            data-aos="fade-in"
+            data-aos-once="false"
+            >
+                <h1 class="hero_text text-center js-heroText"></h1>
+            </div>
+
+            <div class="hero d-flex align-items-center justify-content-center" 
+            data-aos="fade-in"
+            data-aos-once="false"
+            >
+                <h1 class="hero_text text-center js-heroSubText"></h1>
+            </div>
+
+        </div>
+
         <div class="container climate_container">
+
             <h1 class="climate_title text-center">Projected Mean Temperature, Estonia; (Ref. Period: 1986-2085)</h1>
             
-            <div class="climate_buttons">
+            <div class="climate_buttons d-none">
                 <button class="btn btn-primary js-switchChartBtn" data-chart="chartWinter">Winter</button>
                 <button class="btn btn-primary js-switchChartBtn" data-chart="chartSummer">Summer</button>
             </div>
-            <div class="climate_chart js-chart st-show" id="chartSummer"></div>
-            <div class="climate_chart js-chart" id="chartWinter"></div>
+
+            
+            <div class="climate_chart js-chart st-show" id="chartSummer" 
+            data-aos="fade-right" 
+            data-aos-duration="1000"
+            data-aos-once="false"
+            ></div>
+    
+            <div class="climate_chart js-chart st-show" id="chartWinter" 
+            data-aos="fade-left" 
+            data-aos-duration="1000"
+            data-aos-once="false"
+            ></div>
+        
+            
         </div>
 
     </main>

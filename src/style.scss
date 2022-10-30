@@ -8,18 +8,37 @@ html {
 body {
     position: relative;
     height: 100%;
-    //background: url('../images/globalwarming.jpeg');
+    background: url('../images/earthonfire.jpeg');
     background-size: cover;
-    background-position: fixed;
+    background-attachment: fixed;
     backdrop-filter: blur(5px);
+    font-family: 'Libre Baskerville', serif;
     // background-color: #08AEEA;
     // background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
+}
+
+main {
+    
+}
+
+.hero {
+    height: 100vh;
+}
+
+.hero_text {
+    color: white;
+    max-width: 600px;
+    padding: 3rem 0;
+}
+
+.container-100vh {
+    height: 100vh;
 }
 
 .climate_title {
     margin-bottom: 2rem;
     font-size: 2rem;
-    //color: white;
+    color: white;
 }
 
 .climate_container {
@@ -28,7 +47,7 @@ body {
 
 .climate_chart {
     display: none;
-    
+
     &.st-show {
         display: block;
     }
@@ -46,5 +65,5 @@ body {
 }
 
 .highcharts-background {
-    //fill: rgba(255, 255, 255, 0.3);
+    fill: rgba(255, 255, 255, 0.3);
 }
